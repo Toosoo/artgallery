@@ -47,7 +47,9 @@ body.ready {
   width: 100%;
   height: 100%;
 }
-
+.splitted {
+  font-kerning: none;
+}
 /****************************** intro **********************/
 
 #cursor{

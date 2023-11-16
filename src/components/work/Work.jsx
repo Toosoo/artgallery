@@ -1,7 +1,8 @@
 
 import {useEffect,useRef} from 'react'
+import SplitType from 'split-type'
 
-export default function Work({gsap,SplitText,ScrollTrigger,mm}){
+export default function Work({gsap,ScrollTrigger,mm}){
     let fadingDevRef = useRef()
     let workRef = useRef()
     let tl2 = gsap.timeline()
@@ -52,8 +53,8 @@ export default function Work({gsap,SplitText,ScrollTrigger,mm}){
     let work= workRef.current
 
     mm.add("(min-width: 1023px)",()=>{
-      let splitText2 = new SplitText("h2",{type:"chars"})
-      let chars2 = splitText2.chars
+      let splitText2 = new SplitType("h2",{types:"chars"})
+
 
         ScrollTrigger.create({
             animation:tl2,
@@ -64,7 +65,7 @@ export default function Work({gsap,SplitText,ScrollTrigger,mm}){
             scrub:1,
             ease:"power2.inOut",
           })
-          tl2.from(chars2,{
+          tl2.from(splitText2.chars,{
             opacity:0,
             y:100,
             duration:1,

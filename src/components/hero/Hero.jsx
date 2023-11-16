@@ -1,6 +1,6 @@
 
 import {useEffect,useRef} from 'react'
-
+import SplitType from 'split-type'
 
 export default function Hero({tl,gsap,SplitText,ScrollTrigger}) {
     let davinciRef1 = useRef(null)
@@ -10,9 +10,11 @@ export default function Hero({tl,gsap,SplitText,ScrollTrigger}) {
     let tl3 = gsap.timeline()
     useEffect(()=>{
         let hero = heroRef.current
-       new SplitText(davinciRef2.current, { type: "chars" })
-       let  mySplitText = new SplitText(mySplitTextRef.current, { type: "chars" })
-       let  chars = mySplitText.chars;
+
+    const heroSplit =   new SplitType(davinciRef2.current, {types:"chars,words"})
+
+       let  mySplitText = new SplitText(mySplitTextRef.current, { types: "chars,words" })
+      
 
            ScrollTrigger.create({
             animation:tl3,
@@ -29,7 +31,7 @@ export default function Hero({tl,gsap,SplitText,ScrollTrigger}) {
                y:100,
                 ease: "power2.inOut",
             })
-            tl.from(chars, {
+            tl.from(mySplitText.chars, {
                 duration: 1.2, 
                 opacity: 0, 
                 y: "random(70, -70)",

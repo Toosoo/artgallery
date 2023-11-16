@@ -2,8 +2,8 @@ import React from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
-import { SplitText } from "gsap/SplitText";
-gsap.registerPlugin(SplitText, Observer, ScrollTrigger);
+
+gsap.registerPlugin( Observer, ScrollTrigger);
 import Intro from "../intro/Intro";
 import Header from "../header/Header";
 import Hero from "../hero/Hero";
@@ -18,8 +18,8 @@ export default function App() {
     <>
       <Intro gsap={gsap} tl={tl} Observer={Observer} mm={mm} />
       <Header tl={tl} />
-      <Hero gsap={gsap} tl={tl} Observer={Observer} SplitText={SplitText} ScrollTrigger={ScrollTrigger} />
-      <Work gsap={gsap} ScrollTrigger={ScrollTrigger} SplitText={SplitText} mm={mm} />
+      <Hero gsap={gsap} tl={tl} Observer={Observer}  ScrollTrigger={ScrollTrigger} />
+      <Work gsap={gsap} ScrollTrigger={ScrollTrigger} mm={mm} />
       <Footer />
     </>
   );
